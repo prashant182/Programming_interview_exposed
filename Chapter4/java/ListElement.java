@@ -1,4 +1,3 @@
-//package java;
 public class ListElement<T>{
 	private ListElement<T> next;
  	private	T data;

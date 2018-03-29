@@ -1,5 +1,3 @@
-//package java;
-
 public class LinkedList{
 	public static ListElement<Integer> insertAtTop(ListElement<Integer> list, int data){
 		ListElement<Integer> head = list;
