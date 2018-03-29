@@ -7,6 +7,21 @@ public class LinkedList{
 		return head;
 	}
 
+	public static ListElement<Integer> deleteElement(ListElement<Integer> list, int i){
+		ListElement<Integer> head = list;
+		for (int j=0;j<i-1;j++){
+			if(i==0){
+				list = list.next();
+				return list;
+			}
+			list = list.next();
+			System.out.println("Head value is "+list.value());
+		}
+		list.setNext(list.next().next());
+		return head;
+
+	}
+
 	public static ListElement<Integer> insertAfter(ListElement<Integer> list, int data, int i){
 		if(i==0){
 			return insertAtTop(list,data);
@@ -34,7 +49,8 @@ public class LinkedList{
 	public static void main(String[] args){
 		ListElement<Integer> list = new ListElement<Integer>(5);
 		//case_insertAtTop(list);
-		case_insertAfter(list);
+		//case_insertAfter(list);
+		case_deleteElement(list);
 	}
 
 	public static void case_insertAtTop(ListElement<Integer> list){
@@ -44,6 +60,16 @@ public class LinkedList{
 		list = insertAtTop(list,60);
 		printLinkedList(list);
 	}
+	public static void case_deleteElement(ListElement<Integer> list){
+		list = insertAtTop(list,12);
+		list = insertAtTop(list,13);
+		list = insertAfter(list,2,0);
+		list = insertAfter(list,3,7);
+		printLinkedList(list);
+		list = deleteElement(list,2);
+		printLinkedList(list);
+	}
+
 	public static void case_insertAfter(ListElement<Integer> list){
 		printLinkedList(list);
 		list = insertAfter(list,2,0);
